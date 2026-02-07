@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+/* ============================================
+   Custom Theme Configuration for Tailwind v4
+   ============================================ */
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+/* ============================================
+   CSS Variables - Theme Colors
+   ============================================ */
+:root,
+[data-theme="dark"] {
+  --background: #0a0a0f;
+  --foreground: #e4e4e7;
+  --muted: #a1a1aa;
+  --accent: #8b5cf6;
+  --accent-hover: #a78bfa;
+  --card: #18181b;
+  --card-border: #27272a;
+  --border-color: #27272a;
+  --gradient-start: #6366f1;
+  --gradient-end: #ec4899;
+}
+
+[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #18181b;
+  --muted: #71717a;
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --card: #f4f4f5;
+  --card-border: #e4e4e7;
+  --border-color: #e4e4e7;
+  --gradient-start: #4f46e5;
+  --gradient-end: #db2777;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================
+   Scrollbar Styles
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* ============================================
+   Glass Effects
+   ============================================ */
+.glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+[data-theme="dark"] .glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .glass {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.glass-strong {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+}
+
+[data-theme="dark"] .glass-strong {
+  background: rgba(24, 24, 27, 0.8);
+}
+
+[data-theme="light"] .glass-strong {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   Section Container
+   ============================================ */
+.section {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================
+   Gradient Shimmer Animation
+   ============================================ */
+@keyframes shimmer-gradient {
+  0% {
+    background-position: 100% 0, 0 0;
+  }
+  100% {
+    background-position: -100% 0, 0 0;
+  }
+}
+
+.text-gradient-shimmer {
+  background-image: 
+    linear-gradient(110deg, transparent 45%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
+    linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  background-size: 200% 100%, 100% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-gradient 3s linear infinite;
+  display: inline-block;
+}
+
+/* Gradient text without shimmer */
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   Custom Color Classes using CSS Variables
+   ============================================ */
+.text-foreground {
+  color: var(--foreground);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-background {
+  background-color: var(--background);
+}
+
+.bg-card {
+  background-color: var(--card);
+}
+
+.border-card-border {
+  border-color: var(--card-border);
+}
+
+/* Accent variations */
+.hover\:text-accent-hover:hover {
+  color: var(--accent-hover);
+}
+
+/* ============================================
+   Custom Animations
+   ============================================ */
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ============================================
+   Card Variants
+   ============================================ */
+.card-gradient {
+  background: linear-gradient(to bottom right, var(--card), var(--card-border));
+  border: 1px solid var(--card-border);
+}
+
+/* ============================================
+   Perspective for 3D effects
+   ============================================ */
+.perspective-1000 {
+  perspective: 1000px;
+}
