@@ -24,6 +24,6 @@ export const projects: Project[] = [
     gradientFrom: 'from-emerald-500/90',
     gradientTo: 'to-teal-500/90',
     link: 'https://improvement-tree.demo',
-    github: 'https://github.com/younes-hammou/improvement-tree',
+    github: 'https://github.com/hammouyounes/Project_Stage',
   },
 ];

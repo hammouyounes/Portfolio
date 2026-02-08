@@ -1,40 +1,55 @@
 import React from 'react';
-import GlassCard from '../ui/GlassCard';
 import { BookOpenIcon, TrophyIcon, LinkIcon, ArrowRightIcon } from '../icons';
 
-interface OtherLink {
+interface ExploreCard {
   id: string;
   title: string;
   description: string;
   icon: React.ReactNode;
   href: string;
-  color: string;
+  borderColor: string;
+  titleGradient: string;
+  hoverBg: string;
+  hoverBorder: string;
+  linkColor: string;
 }
 
-const otherLinks: OtherLink[] = [
+const exploreCards: ExploreCard[] = [
   {
     id: 'guestbook',
     title: 'Guestbook',
-    description: 'Leave a message and say hi! I love hearing from visitors.',
-    icon: <BookOpenIcon size={28} />,
+    description: 'Leave your mark and see what others have to say',
+    icon: <BookOpenIcon size={24} />,
     href: '#guestbook',
-    color: 'from-indigo-500 to-purple-500',
+    borderColor: 'border-purple-500/50',
+    titleGradient: 'from-purple-400 to-pink-500',
+    hoverBg: 'bg-purple-950/40 border border-purple-500/30',
+    hoverBorder: 'group-hover:border-purple-400',
+    linkColor: 'text-purple-400',
   },
   {
     id: 'achievements',
     title: 'Achievements',
-    description: 'Certifications, awards, and career milestones I\'m proud of.',
-    icon: <TrophyIcon size={28} />,
+    description: 'Milestones, certifications, and accomplishments',
+    icon: <TrophyIcon size={24} />,
     href: '#achievements',
-    color: 'from-amber-500 to-orange-500',
+    borderColor: 'border-amber-500/50',
+    titleGradient: 'from-amber-400 to-orange-500',
+    hoverBg: 'bg-amber-950/40 border border-amber-500/30',
+    hoverBorder: 'group-hover:border-amber-400',
+    linkColor: 'text-amber-400',
   },
   {
     id: 'links',
     title: 'My Links',
-    description: 'Find me across the web - social media, profiles, and more.',
-    icon: <LinkIcon size={28} />,
+    description: 'Find me across the web and social platforms',
+    icon: <LinkIcon size={24} />,
     href: '#links',
-    color: 'from-pink-500 to-rose-500',
+    borderColor: 'border-cyan-500/50',
+    titleGradient: 'from-cyan-400 to-blue-500',
+    hoverBg: 'bg-cyan-950/40 border border-cyan-500/30',
+    hoverBorder: 'group-hover:border-cyan-400',
+    linkColor: 'text-cyan-400',
   },
 ];
 
@@ -44,66 +59,79 @@ const OtherSection: React.FC = () => {
       <div className="section">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium bg-[var(--accent)]/10 text-[var(--accent)] rounded-full border border-[var(--accent)]/20">
-            Explore More
-          </span>
-          <h2 className="text-[var(--foreground)] mb-4">
-            Other Things
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--foreground)] mb-4">
+            More to{' '}
+            <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+              Explore
+            </span>
           </h2>
-          <p className="text-lg text-[var(--muted)] max-w-2xl mx-auto">
-            Discover more about me beyond just code.
+          <p className="text-[var(--muted)] max-w-xl mx-auto">
+            Check out these additional resources and connect with me
           </p>
         </div>
 
-        {/* Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {otherLinks.map((link) => (
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+          {exploreCards.map((card) => (
             <a
-              key={link.id}
-              href={link.href}
-              className="block group"
+              key={card.id}
+              href={card.href}
+              className="group flex flex-col items-center text-center relative"
             >
-              <GlassCard padding="lg" className="h-full relative overflow-hidden">
-                {/* Gradient accent line */}
-                <div
-                  className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${link.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                />
-
-                {/* Icon */}
+              {/* Hover Background Container */}
+              <div 
+                className={`
+                  absolute inset-0 -inset-x-4 -inset-y-6 rounded-3xl
+                  opacity-0 group-hover:opacity-100
+                  transition-all duration-300
+                  ${card.hoverBg}
+                `}
+              />
+              
+              {/* Content */}
+              <div className="relative z-10 flex flex-col items-center">
+                {/* Icon Box */}
                 <div
                   className={`
-                    inline-flex items-center justify-center
-                    w-14 h-14 rounded-xl mb-4
-                    bg-gradient-to-br ${link.color}
-                    text-white
-                    group-hover:scale-110
-                    transition-transform duration-300
+                    w-16 h-16 rounded-2xl mb-6
+                    flex items-center justify-center
+                    bg-[var(--card)] border-2 ${card.borderColor}
+                    text-[var(--foreground)]
+                    group-hover:border-opacity-100 ${card.hoverBorder}
+                    transition-all duration-300
                   `}
                 >
-                  {link.icon}
+                  {card.icon}
                 </div>
 
-                {/* Content */}
-                <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2 group-hover:text-[var(--accent)] transition-colors duration-200">
-                  {link.title}
+                {/* Title */}
+                <h3 
+                  className={`
+                    text-xl md:text-2xl font-bold mb-3
+                    bg-gradient-to-r ${card.titleGradient} bg-clip-text text-transparent
+                  `}
+                >
+                  {card.title}
                 </h3>
-                <p className="text-sm text-[var(--muted)] mb-4">
-                  {link.description}
+
+                {/* Description */}
+                <p className="text-sm text-[var(--muted)] mb-4 max-w-[200px]">
+                  {card.description}
                 </p>
 
-                {/* Arrow indicator */}
-                <div className="flex items-center gap-2 text-sm font-medium text-[var(--accent)] opacity-0 translate-x-[-10px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                {/* Explore Link */}
+                <div className={`flex items-center gap-1 text-sm font-medium ${card.linkColor} group-hover:gap-2 transition-all duration-300`}>
                   Explore
-                  <ArrowRightIcon size={16} />
+                  <ArrowRightIcon size={14} />
                 </div>
-              </GlassCard>
+              </div>
             </a>
           ))}
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20">
-          <GlassCard padding="lg" className="text-center bg-gradient-to-br from-[var(--card)] to-[var(--background)]">
+        <div className="mt-24">
+          <div className="text-center p-12 rounded-3xl bg-gradient-to-br from-[var(--card)] to-[var(--background)] border border-[var(--card-border)]">
             <h3 className="text-2xl md:text-3xl font-bold text-[var(--foreground)] mb-4">
               Let's Work Together
             </h3>
@@ -127,7 +155,7 @@ const OtherSection: React.FC = () => {
               Get In Touch
               <ArrowRightIcon size={18} />
             </a>
-          </GlassCard>
+          </div>
         </div>
       </div>
     </section>
