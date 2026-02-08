@@ -44,7 +44,7 @@ const exploreCards: ExploreCard[] = [
     title: 'My Links',
     description: 'Find me across the web and social platforms',
     icon: <LinkIcon size={24} />,
-    href: '#links',
+    href: '/links',
     borderColor: 'border-cyan-500/50',
     titleGradient: 'from-cyan-400 to-blue-500',
     hoverBg: 'bg-cyan-950/40 border border-cyan-500/30',
@@ -117,7 +117,7 @@ const OtherSection: React.FC = () => {
                 {/* Description */}
                 <p className="text-sm text-[var(--muted)] mb-4 max-w-[200px]">
                   {card.description}
-                </p>
+                </p>  
 
                 {/* Explore Link */}
                 <div className={`flex items-center gap-1 text-sm font-medium ${card.linkColor} group-hover:gap-2 transition-all duration-300`}>
