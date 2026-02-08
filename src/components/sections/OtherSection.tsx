@@ -15,24 +15,24 @@ interface ExploreCard {
 }
 
 const exploreCards: ExploreCard[] = [
-  {
-    id: 'guestbook',
-    title: 'Guestbook',
-    description: 'Leave your mark and see what others have to say',
-    icon: <BookOpenIcon size={24} />,
-    href: '#guestbook',
-    borderColor: 'border-purple-500/50',
-    titleGradient: 'from-purple-400 to-pink-500',
-    hoverBg: 'bg-purple-950/40 border border-purple-500/30',
-    hoverBorder: 'group-hover:border-purple-400',
-    linkColor: 'text-purple-400',
-  },
+  // {
+  //   id: 'guestbook',
+  //   title: 'Guestbook',
+  //   description: 'Leave your mark and see what others have to say',
+  //   icon: <BookOpenIcon size={24} />,
+  //   href: '#guestbook',
+  //   borderColor: 'border-purple-500/50',
+  //   titleGradient: 'from-purple-400 to-pink-500',
+  //   hoverBg: 'bg-purple-950/40 border border-purple-500/30',
+  //   hoverBorder: 'group-hover:border-purple-400',
+  //   linkColor: 'text-purple-400',
+  // },
   {
     id: 'achievements',
     title: 'Achievements',
     description: 'Milestones, certifications, and accomplishments',
     icon: <TrophyIcon size={24} />,
-    href: '#achievements',
+    href: '/achievements',
     borderColor: 'border-amber-500/50',
     titleGradient: 'from-amber-400 to-orange-500',
     hoverBg: 'bg-amber-950/40 border border-amber-500/30',
@@ -71,7 +71,7 @@ const OtherSection: React.FC = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6">
           {exploreCards.map((card) => (
             <a
               key={card.id}
@@ -129,34 +129,7 @@ const OtherSection: React.FC = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-24">
-          <div className="text-center p-12 rounded-3xl bg-gradient-to-br from-[var(--card)] to-[var(--background)] border border-[var(--card-border)]">
-            <h3 className="text-2xl md:text-3xl font-bold text-[var(--foreground)] mb-4">
-              Let's Work Together
-            </h3>
-            <p className="text-[var(--muted)] max-w-xl mx-auto mb-8">
-              Have a project in mind? I'm always open to discussing new opportunities, 
-              creative ideas, or ways to bring your vision to life.
-            </p>
-            <a
-              href="mailto:contact@younes-hammou.dev"
-              className="
-                inline-flex items-center gap-2
-                px-8 py-4
-                bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)]
-                text-white font-medium
-                rounded-xl
-                hover:opacity-90 hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25
-                active:scale-[0.98]
-                transition-all duration-300
-              "
-            >
-              Get In Touch
-              <ArrowRightIcon size={18} />
-            </a>
-          </div>
-        </div>
+      
       </div>
     </section>
   );
