@@ -19,7 +19,7 @@ const StackedCard: React.FC<InfoCardProps> = ({
   const alignmentClass = textAlign === 'center' ? 'text-center' : textAlign === 'right' ? 'text-right' : 'text-left';
   
   return (
-    <div className={`h-44 md:h-48 hover:h-52 md:hover:h-56 z-10 hover:z-50 bg-[var(--card)] border border-[var(--foreground)]/10 border-b-0 rounded-t-xl p-3 md:p-5 flex flex-col justify-start shadow-[0_-5px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_-5px_35px_rgba(168,85,247,0.5)] hover:border-purple-500/50 transition-all duration-300 ease-out relative group/card overflow-hidden cursor-pointer ${className}`}>
+    <div className={`h-56 md:h-52 hover:h-60 md:hover:h-56 z-10 hover:z-50 bg-[var(--card)] border border-[var(--foreground)]/10 border-b-0 rounded-t-xl p-3 md:p-5 flex flex-col justify-start shadow-[0_-5px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_-5px_35px_rgba(168,85,247,0.5)] hover:border-purple-500/50 transition-all duration-300 ease-out relative group/card overflow-hidden cursor-pointer ${className}`}>
       {/* Top Highlight Line */}
       <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent opacity-100 md:opacity-0 md:group-hover/card:opacity-100 transition-opacity duration-300" />
       
@@ -28,12 +28,10 @@ const StackedCard: React.FC<InfoCardProps> = ({
           {title}
         </span>
         
-        {/* Mobile Description */}
-        {shortDesc && (
-          <span className="block md:hidden text-[11px] text-[var(--muted)] leading-snug mt-2 opacity-70">
-            {shortDesc}
-          </span>
-        )}
+        {/* Mobile Description - Show longDesc if no shortDesc */}
+        <span className="block md:hidden text-[10px] text-[var(--muted)] leading-snug mt-2 opacity-80">
+          {shortDesc || longDesc}
+        </span>
         
         {/* Desktop Description - Single element with hover transition */}
         <span className="hidden md:block text-xs text-[var(--muted)] leading-snug mt-2 opacity-50 group-hover/card:opacity-100 transition-all duration-300 [mask-image:linear-gradient(to_bottom,black_0%,black_30%,transparent_80%)] group-hover/card:[mask-image:none]">
@@ -70,7 +68,7 @@ const AboutSection: React.FC = () => {
           </div>
 
           {/* Academic Showcase - Education Tab */}
-          <div className="md:col-span-2 lg:col-span-4 rounded-2xl bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md relative overflow-hidden group w-full h-48 md:h-56">
+          <div className="md:col-span-2 lg:col-span-4 rounded-2xl bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md relative overflow-hidden group w-full h-64 md:h-56">
             
             {/* Floating Badge */}
             <div className="hidden md:flex absolute top-4 left-0 right-0 justify-center z-30 pointer-events-none group-hover:opacity-0 transition-opacity duration-300 delay-100">
@@ -94,25 +92,25 @@ const AboutSection: React.FC = () => {
             <div className="w-full h-full flex justify-center items-end px-2 relative z-10 overflow-hidden rounded-2xl">
               
               <StackedCard 
-                title="Science Club"
-                shortDesc="Active member of GenAI Science Club. Training CV models for autonomous systems."
-                longDesc="Active member of the GenAI Science Club at AGH. Currently training computer vision models for automated road obstacle detection in autonomous systems."
-                className="w-1/3 -mr-6"
+                title="Tech Stack"
+                shortDesc=""
+                longDesc="Specialized in Full-Stack development using Java (Spring Boot) and PHP (Laravel) for robust backends, paired with modern Angular and React frontends."
+                className="w-[38%] md:w-1/3 -mr-1 md:-mr-2"
               />
 
               <StackedCard 
                 title="University"
                 shortDesc=""
-                longDesc="Pursuing Computer Science & Intelligent Systems at AGH - ranked as Poland's #2 technical university. This elite program is recognized as the #1 major in the country for IT and AI."
-                className="w-2/5 z-20"
+                longDesc="Currently pursuing a Bachelor in Information Systems Engineering and Web Technologies at EST Sidi Bennour."
+                className="w-[40%] md:w-2/5 z-20"
                 textAlign="center"
               />
 
               <StackedCard 
-                title="Competitions"
-                shortDesc="3rd Place Winner at Cassini Hackathon. Econverse Startup Finalist."
-                longDesc="3rd Place Winner at the Cassini Hackathon and Econverse Startup Finalist. Proven ability to translate high-tech engineering into scalable business models under pressure."
-                className="w-1/3 -ml-6"
+                title="FEATURED WORK"
+                shortDesc=""
+                longDesc="Proven track record in developing real-world applications, including a delivery management system and a syndic management app."
+                className="w-[38%] md:w-1/3 -ml-1 md:-ml-2"
                 textAlign="right"
               />
 
