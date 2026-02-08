@@ -58,13 +58,32 @@ const AboutSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
           
           {/* Name Card - Top Left */}
-          <div className="md:col-span-2 lg:col-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] p-6 flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] tracking-tight mb-2">
-              HAMMOU<br />YOUNES
-            </h2>
-            <p className="text-sm text-[var(--muted)] uppercase tracking-widest">
-              Fullstack Developer
-            </p>
+          <div className="md:col-span-2 lg:col-span-2 bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md rounded-2xl relative overflow-hidden group w-full h-full p-7">
+            {/* Radial Gradient Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+              <div className="w-full h-full blur-3xl bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] mix-blend-overlay" />
+            </div>
+            
+            {/* Content */}
+            <div className="flex flex-col justify-center items-center text-center h-full relative z-10 w-full gap-1">
+              {/* Name */}
+              <div className="flex flex-col items-center w-full pb-2">
+                <div className="text-5xl font-black tracking-tighter leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-[var(--foreground)] to-[var(--muted)] drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+                  HAMMOU
+                </div>
+                <div className="text-5xl font-black tracking-tighter leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-[var(--foreground)] to-[var(--muted)] drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+                  YOUNES
+                </div>
+              </div>
+              
+              {/* Separator & Subtitle */}
+              <div className="flex flex-col items-center gap-2 -mt-1">
+                <div className="h-px w-12 bg-[var(--foreground)]/20" />
+                <span className="text-[15px] font-mono text-[var(--muted)] uppercase tracking-[0.2em] opacity-80">
+                  Fullstack Developer
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Academic Showcase - Education Tab */}
