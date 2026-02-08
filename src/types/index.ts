@@ -11,6 +11,9 @@ export interface Project {
   description: string;
   image: string;
   tags: string[];
+  type?: string;
+  gradientFrom?: string;
+  gradientTo?: string;
   link?: string;
   github?: string;
 }

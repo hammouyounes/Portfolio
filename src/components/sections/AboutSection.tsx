@@ -158,11 +158,11 @@ const AboutSection: React.FC = () => {
             <h3 className="text-2xl font-mono text-[var(--foreground)] mb-4">Mindset</h3>
             <p className="text-[var(--muted)] leading-relaxed mb-6">
               <span className="text-[var(--foreground)] font-medium">Building more than software.</span> My passions provide the{' '}
-              <span className="text-[var(--foreground)] font-medium">discipline and focus</span> I need to grow.
+              <span className="text-[var(--foreground)] font-medium">discipline and focus</span> I focus on the user journey.
             </p>
             I combine technical discipline with Agile collaboration 
             to solve complex problems. Whether it's a Syndic Management 
-            app or Delivery Logistics, I focus on the user journey.
+            app or Delivery Logistics, 
             
             {/* Hobby Image */}
             <div className="mt-auto rounded-xl overflow-hidden border border-[var(--card-border)] h-32 bg-gradient-to-br from-purple-900/30 to-blue-900/30 flex items-center justify-center">
@@ -214,11 +214,11 @@ const AboutSection: React.FC = () => {
           {/* Craft Card - Right */}
           <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] p-6 flex flex-col">
             <h3 className="text-2xl font-mono text-[var(--foreground)] mb-4">Craft</h3>
-            <p className="text-[var(--muted)] leading-relaxed mb-4">
-              Building scalable <span className="text-[var(--foreground)] font-medium">apps, websites, and automations</span>.
+            <p className="text-[var(--muted)]  leading-relaxed mb-4">
+              Building scalable <span className="text-[var(--foreground)] font-medium">web ecosystems and digital platforms.</span>.
             </p>
             <p className="text-[var(--muted)] leading-relaxed mb-6">
-              I understand what advantages modern tech can provide, helping me advise on the solutions a business actually needs.
+              I understand the advantages modern tech provides, helping me bridge the gap between complex business logic and high-performance code.
             </p>
             
             {/* Tech Carousel - Infinite Scroll */}
