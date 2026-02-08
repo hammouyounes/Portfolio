@@ -1,4 +1,17 @@
 import React from 'react';
+import { 
+  SiSpringboot, 
+  SiReact, 
+  SiLaravel, 
+  SiAngular, 
+  SiDocker, 
+  SiTypescript, 
+  SiNodedotjs,
+  SiOracle,
+  SiGitlab
+} from 'react-icons/si';
+import { FaGitAlt } from 'react-icons/fa';
+import myImg from '../../assets/MyImg.png'
 
 // StackedCard Component for Academic Showcase
 interface InfoCardProps {
@@ -44,11 +57,15 @@ const StackedCard: React.FC<InfoCardProps> = ({
 
 const AboutSection: React.FC = () => {
   const skills = [
-    { name: 'Spring Boot', icon: '⚡' },
-    { name: 'React', icon: '⚛️' },
-    { name: 'Docker', icon: '🐳' },
-    { name: 'Git', icon: '📦' },
-    { name: 'Laravel', icon: '🔺' },
+    { name: 'Spring Boot', icon: <SiSpringboot />, color: '#6DB33F' },
+    { name: 'React', icon: <SiReact />, color: '#61DAFB' },
+    { name: 'Laravel', icon: <SiLaravel />, color: '#FF2D20' },
+    { name: 'Angular', icon: <SiAngular />, color: '#DD0031' },
+    { name: 'Docker', icon: <SiDocker />, color: '#2496ED' },
+    { name: 'Git', icon: <FaGitAlt />, color: '#F05032' },
+    { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6' },
+    { name: 'Oracle', icon: <SiOracle />, color: '#F80000' },
+
   ];
 
   return (
@@ -138,11 +155,14 @@ const AboutSection: React.FC = () => {
 
           {/* Mindset Card - Left */}
           <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] p-6 flex flex-col">
-            <h3 className="text-2xl font-serif italic text-[var(--foreground)] mb-4">Mindset</h3>
+            <h3 className="text-2xl font-mono text-[var(--foreground)] mb-4">Mindset</h3>
             <p className="text-[var(--muted)] leading-relaxed mb-6">
               <span className="text-[var(--foreground)] font-medium">Building more than software.</span> My passions provide the{' '}
               <span className="text-[var(--foreground)] font-medium">discipline and focus</span> I need to grow.
             </p>
+            I combine technical discipline with Agile collaboration 
+            to solve complex problems. Whether it's a Syndic Management 
+            app or Delivery Logistics, I focus on the user journey.
             
             {/* Hobby Image */}
             <div className="mt-auto rounded-xl overflow-hidden border border-[var(--card-border)] h-32 bg-gradient-to-br from-purple-900/30 to-blue-900/30 flex items-center justify-center">
@@ -163,9 +183,9 @@ const AboutSection: React.FC = () => {
             {/* Profile Photo */}
             <div className="flex-1 min-h-[200px] bg-gradient-to-br from-[var(--card)] to-[var(--background)] flex items-center justify-center">
               <img
-                src="/images/image_1.jpg"
+                src={myImg}
                 alt="Hammou Younes"
-                className="w-full h-full object-cover"
+                className="w-full h-100 object-cover"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   e.currentTarget.parentElement!.innerHTML = `
@@ -193,7 +213,7 @@ const AboutSection: React.FC = () => {
 
           {/* Craft Card - Right */}
           <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] p-6 flex flex-col">
-            <h3 className="text-2xl font-serif italic text-[var(--foreground)] mb-4">Craft</h3>
+            <h3 className="text-2xl font-mono text-[var(--foreground)] mb-4">Craft</h3>
             <p className="text-[var(--muted)] leading-relaxed mb-4">
               Building scalable <span className="text-[var(--foreground)] font-medium">apps, websites, and automations</span>.
             </p>
@@ -201,28 +221,56 @@ const AboutSection: React.FC = () => {
               I understand what advantages modern tech can provide, helping me advise on the solutions a business actually needs.
             </p>
             
-            {/* Tech Badges */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {skills.map((skill) => (
-                <span
-                  key={skill.name}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full bg-[var(--background)] border border-[var(--card-border)] text-[var(--muted)]"
-                >
-                  <span>{skill.icon}</span>
-                  {skill.name}
-                </span>
-              ))}
+            {/* Tech Carousel - Infinite Scroll */}
+            <div className="relative w-full py-2 bg-[var(--card-border)]/30 border-y border-[var(--card-border)]/50 my-auto">
+              {/* Fade edges */}
+              <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-[var(--card)] to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-[var(--card)] to-transparent z-10" />
+              
+              {/* Scrolling container */}
+              <div className="flex overflow-hidden select-none">
+                <div className="flex gap-5 whitespace-nowrap pr-5 items-center animate-scroll-left">
+                  {/* First set of skills */}
+                  <div className="flex gap-5 items-center">
+                    {skills.map((skill, index) => (
+                      <div
+                        key={`${skill.name}-${index}`}
+                        className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
+                      >
+                        <span className="text-xs" style={{ color: skill.color }}>{skill.icon}</span>
+                        <span className="text-[9px] font-mono font-medium text-[var(--muted)] uppercase tracking-wide">
+                          {skill.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Duplicate set for seamless loop */}
+                  <div className="flex gap-5 items-center">
+                    {skills.map((skill, index) => (
+                      <div
+                        key={`${skill.name}-dup-${index}`}
+                        className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
+                      >
+                        <span className="text-xs" style={{ color: skill.color }}>{skill.icon}</span>
+                        <span className="text-[9px] font-mono font-medium text-[var(--muted)] uppercase tracking-wide">
+                          {skill.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
             
             <div className="mt-auto">
-              <p className="text-[var(--muted)] leading-relaxed mb-4">
+              <p className="text-[var(--muted)] leading-relaxed mb-4 mt-4">
                 Active learner & problem solver. Feel free to invite me to <span className="text-[var(--foreground)] font-medium">collaborate</span>.
               </p>
               
               {/* Status Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                <span className="text-xs text-green-500 font-medium">Open to collaboration & freelance</span>
+                <span className="text-xs text-green-500 font-medium">Open to Internships, Full-time & Freelance</span>
               </div>
             </div>
           </div>

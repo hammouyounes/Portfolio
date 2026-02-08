@@ -159,7 +159,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       <div className="section relative z-10 pt-28 md:pt-36 pb-8">
-        <h1 className="text-center mb-12 text-3xl md:text-4xl font-bold">
+        <h1 className="text-center mb-12 text-3xl md:text-4xl font-bold ">
           <span className="text-[var(--foreground)]">Hi, I'm </span>
           <GradientText as="span" shimmer>Hammou Younes</GradientText>
         </h1>

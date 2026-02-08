@@ -279,3 +279,23 @@ button, a {
 .perspective-1000 {
   perspective: 1000px;
 }
+
+/* ============================================
+   Infinite Scroll/Marquee Animation
+   ============================================ */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 15s linear infinite;
+}
+
+.animate-scroll-left:hover {
+  animation-play-state: paused;
+}
