@@ -1,6 +1,21 @@
 import React from 'react';
 import { skills, skillCategories } from '../../data/skills';
 import GlassCard from '../ui/GlassCard';
+import SkillSphere from '../ui/SkillSphere';
+
+// Map skills to the SkillSphere format with CDN icons
+const sphereSkills = [
+  { name: 'HTML5', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { name: 'CSS', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  { name: 'JavaScript', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'TypeScript', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+  { name: 'Spring Boot', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
+  { name: 'React', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'Laravel', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg' },
+  { name: 'PHP', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
+  { name: 'Git', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+  { name: 'Docker', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+];
 
 const SkillsSection: React.FC = () => {
   // Group skills by category
@@ -24,16 +39,26 @@ const SkillsSection: React.FC = () => {
 
       <div className="section relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium bg-[var(--accent)]/10 text-[var(--accent)] rounded-full border border-[var(--accent)]/20">
             Tech Stack
           </span>
           <h2 className="text-[var(--foreground)] mb-4">
-            Skills & Technologies
+            <span className="text-[var(--foreground)]">My </span>
+            <span className="gradient-text">Skills</span>
           </h2>
           <p className="text-lg text-[var(--muted)] max-w-2xl mx-auto">
             The tools and technologies I use to bring ideas to life.
           </p>
+        </div>
+
+        {/* 3D Skill Sphere */}
+        <div className="h-[400px] md:h-[550px] mb-16 relative">
+          <SkillSphere 
+            skills={sphereSkills} 
+            radius={4.5} 
+            autoRotateSpeed={0.08} 
+          />
         </div>
 
         {/* Skills Grid by Category */}
