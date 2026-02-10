@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { navigationItems } from '../../data/navigation';
 import { useTheme } from '../../hooks/useTheme';
-import { SunIcon, MoonIcon, MenuIcon, CloseIcon, CalendarIcon } from '../icons';
+import { SunIcon, MoonIcon, MenuIcon, CloseIcon, DownloadIcon } from '../icons';
+import Resume from '../../../public/files/Hammou Younes.pdf'
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -136,7 +137,8 @@ const Header: React.FC = () => {
             {/* Right - CTA Button */}
             <div className="hidden md:flex items-center">
               <a
-                href="mailto:contact@younes-hammou.dev"
+                href={Resume}
+                download
                 className="
                   inline-flex items-center gap-2.5
                   px-6 py-3
@@ -153,8 +155,8 @@ const Header: React.FC = () => {
                   color: isDark ? '#e4e4e7' : '#18181b',
                 }}
               >
-                <CalendarIcon size={18} />
-                Book a Call
+                <DownloadIcon size={18} />
+                Download Resume
               </a>
             </div>
 
@@ -232,7 +234,8 @@ const Header: React.FC = () => {
             );
           })}
           <a
-            href="mailto:contact@younes-hammou.dev"
+            href="/files/Hammou Younes.pdf"
+            download="Younes_Hammou_Resume.pdf"
             className="
               mt-6 inline-flex items-center gap-2
               px-6 py-3
@@ -246,8 +249,8 @@ const Header: React.FC = () => {
             "
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            <CalendarIcon size={18} />
-            Book a Call
+            <DownloadIcon size={18} />
+            Download Resume
           </a>
         </nav>
       </div>

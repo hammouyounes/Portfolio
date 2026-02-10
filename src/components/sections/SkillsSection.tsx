@@ -15,6 +15,8 @@ const sphereSkills = [
   { name: 'PHP', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
   { name: 'Git', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
   { name: 'Docker', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+  { name: 'MySQL', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+  { name: 'Oracle', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg' },
 ];
 
 const SkillsSection: React.FC = () => {
@@ -118,28 +120,6 @@ const SkillsSection: React.FC = () => {
               </div>
             </GlassCard>
           ))}
-        </div>
-
-        {/* Additional Skills Tags */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-[var(--muted)] mb-4">Also experienced with:</p>
-          <div className="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
-            {['REST APIs', 'GraphQL', 'CI/CD', 'Agile', 'Testing', 'SEO', 'Performance Optimization', 'Responsive Design'].map((skill) => (
-              <span
-                key={skill}
-                className="
-                  px-3 py-1.5 text-xs font-medium
-                  rounded-full
-                  bg-[var(--card)] border border-[var(--card-border)]
-                  text-[var(--muted)]
-                  hover:text-[var(--accent)] hover:border-[var(--accent)]/30
-                  transition-all duration-200
-                "
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </section>
