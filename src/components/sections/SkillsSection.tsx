@@ -1,7 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { skills, skillCategories } from '../../data/skills';
-import GlassCard from '../ui/GlassCard';
+import { 
+  SiSpringboot, SiReact, SiLaravel, SiAngular, SiDocker, 
+  SiTypescript, SiNodedotjs, SiMysql, SiTailwindcss, 
+  SiFramer, SiNextdotjs, SiPostgresql, SiPrisma, 
+  SiRedux, SiVercel, SiPostman, SiAmazonwebservices, SiKubernetes 
+} from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaGithub } from 'react-icons/fa';
 import SkillSphere from '../ui/SkillSphere';
 
 // Map skills to the SkillSphere format with CDN icons
@@ -20,12 +25,53 @@ const sphereSkills = [
   { name: 'Oracle', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg' },
 ];
 
+interface Skill {
+  name: string;
+  icon: React.ReactNode;
+}
+
+const SkillTag = ({ name, icon }: Skill) => (
+  <div className="flex items-center gap-2 px-4 py-2 bg-[#161616] border border-[#27272a] rounded-xl hover:border-[#8b5cf6] hover:bg-[#1c1c20] transition-all duration-300 group cursor-default">
+    <span className="text-xl group-hover:scale-110 transition-transform duration-300">
+      {icon}
+    </span>
+    <span className="text-sm font-medium text-[#a1a1aa] group-hover:text-[#e4e4e7] transition-colors">
+      {name}
+    </span>
+  </div>
+);
+
 const SkillsSection: React.FC = () => {
-  // Group skills by category
-  const groupedSkills = skillCategories.map((category) => ({
-    ...category,
-    skills: skills.filter((skill) => skill.category === category.id),
-  }));
+  const skillGroups = [
+    // Row 1
+    [
+      { name: 'HTML', icon: <FaHtml5 className="text-[#E34F26]" /> },
+      { name: 'CSS', icon: <FaCss3Alt className="text-[#1572B6]" /> },
+      { name: 'JavaScript', icon: <FaJs className="text-[#F7DF1E]" /> },
+      { name: 'TypeScript', icon: <SiTypescript className="text-[#3178C6]" /> },
+      { name: 'ReactJS', icon: <SiReact className="text-[#61DAFB]" /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-[#06B6D4]" /> },
+
+    ],
+    // Row 2
+    [
+      { name: 'MySQL', icon: <SiMysql className="text-[#4479A1]" /> },
+      { name: 'Spring Boot', icon: <SiSpringboot className="text-[#6DB33F]" /> },
+      { name: 'Laravel', icon: <SiLaravel className="text-[#FF2D20]" /> },
+      { name: 'Angular', icon: <SiAngular className="text-[#DD0031]" /> },
+    ],
+    // Row 3
+    [
+      { name: 'Redux', icon: <SiRedux className="text-[#764ABC]" /> },
+      { name: 'Git', icon: <FaGitAlt className="text-[#F05032]" /> },
+      { name: 'GitHub', icon: <FaGithub className="text-white" /> },
+    ],
+    // Row 4
+    [
+      { name: 'Postman', icon: <SiPostman className="text-[#FF6C37]" /> },
+      { name: 'Docker', icon: <SiDocker className="text-[#2496ED]" /> },
+    ]
+  ];
 
   return (
     <section id="skills" className="py-12 md:py-16 relative">
@@ -63,82 +109,33 @@ const SkillsSection: React.FC = () => {
 
         {/* 3D Skill Sphere */}
         <motion.div
-          className="h-[400px] md:h-[550px] mb-16 relative"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-        >
-          <SkillSphere 
-            skills={sphereSkills} 
-            radius={4.5} 
-            autoRotateSpeed={0.08} 
-          />
+            className="h-[400px] md:h-[550px] mb-16 relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            <SkillSphere 
+              skills={sphereSkills} 
+              radius={4.5} 
+              autoRotateSpeed={0.08} 
+            />
         </motion.div>
 
-        {/* Skills Grid by Category */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {groupedSkills.map((category, categoryIndex) => (
-            <motion.div
-              key={category.id}
-              initial={{ opacity: 0, y: 25 }}
+        {/* New Pill Layout */}
+        <div className="flex flex-col items-center justify-center gap-6 mt-12">
+          {skillGroups.map((group, idx) => (
+            <motion.div 
+              key={idx} 
+              className="flex flex-wrap justify-center gap-4 max-w-5xl px-4"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
             >
-            <GlassCard padding="lg" className="h-full">
-              {/* Category Header */}
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold text-[var(--foreground)]">
-                  {category.label}
-                </h3>
-                <div
-                  className="h-1 w-12 rounded-full mt-2"
-                  style={{
-                    background: categoryIndex === 0
-                      ? 'linear-gradient(to right, #6366f1, #8b5cf6)'
-                      : categoryIndex === 1
-                      ? 'linear-gradient(to right, #22c55e, #10b981)'
-                      : 'linear-gradient(to right, #ec4899, #f43f5e)',
-                  }}
-                />
-              </div>
-
-              {/* Skills List */}
-              <div className="space-y-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <div
-                    key={skill.name}
-                    className="
-                      flex items-center gap-3 p-3
-                      rounded-xl bg-[var(--background)]/50
-                      border border-[var(--card-border)]/50
-                      hover:border-[var(--accent)]/30 hover:bg-[var(--accent)]/5
-                      transition-all duration-200
-                      group
-                    "
-                    style={{
-                      animationDelay: `${skillIndex * 50}ms`,
-                    }}
-                  >
-                    {/* Skill Icon Placeholder */}
-                    <div className="
-                      w-10 h-10 rounded-lg
-                      bg-[var(--card)] border border-[var(--card-border)]
-                      flex items-center justify-center
-                      text-sm font-bold text-[var(--accent)]
-                      group-hover:border-[var(--accent)]/30
-                      transition-all duration-200
-                    ">
-                      {skill.name.charAt(0)}
-                    </div>
-                    <span className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors duration-200">
-                      {skill.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </GlassCard>
+              {group.map((skill) => (
+                <SkillTag key={skill.name} name={skill.name} icon={skill.icon} />
+              ))}
             </motion.div>
           ))}
         </div>
