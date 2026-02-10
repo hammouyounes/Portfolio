@@ -10,7 +10,7 @@ import {
   SiOracle,
 } from 'react-icons/si';
 import { FaGitAlt } from 'react-icons/fa';
-import myImg from '../../assets/MyImg.png'
+import myImg from '../../assets/MyImg.webp'
 
 // StackedCard Component for Academic Showcase
 interface InfoCardProps {

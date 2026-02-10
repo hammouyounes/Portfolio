@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import gitCertificate from '../assets/gitCertificate.jpg';
-import entreprenariatCertif from '../assets/entreprenariat-certificate.png';
+import gitCertificate from '../assets/gitCertif.webp';
+import entreprenariatCertif from '../assets/entreprenariat-certificate.webp';
 import attijariCertif from '../assets/attijari.webp';
 
 interface Achievement {
@@ -29,9 +29,9 @@ const achievements: Achievement[] = [
     image: gitCertificate,
   },
   {
-    id: 'Version Control & Collaborative',
-    title: 'Version Control & Collaborative',
-    description: 'Certified by 365 Data Science in Git and GitHub. This certification covers the essential workflows for modern software development, including branching, merging, and pull request management.',
+    id: 'Dar Al Moukawil Hub Program',
+    title: 'Dar Al Moukawil Hub Program',
+    description: 'Completed a month entrepreneurship support program focused on the development and management of Very Small Enterprises (VSEs/TPEs). Gained insights into business advisory services, financial literacy, and regional economic growth strategies.',
     image: attijariCertif,
   }
 ];

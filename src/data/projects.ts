@@ -1,5 +1,5 @@
 import type { Project } from '../types';
-import wasselImg from '../assets/wassel.png';
+import wasselImg from '../assets/wassel.webp';
 
 export const projects: Project[] = [
   {
