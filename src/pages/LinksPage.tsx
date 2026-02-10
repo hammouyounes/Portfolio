@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedinIn, FaEnvelope, FaArrowLeft } from 'react-icons/fa';
 import { HiExternalLink } from 'react-icons/hi';
@@ -21,16 +22,27 @@ const LinksPage: React.FC = () => {
       <main className="pt-32 pb-24">
         <div className="section max-w-3xl mx-auto px-6">
           {/* Back to Home */}
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors mb-8"
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
           >
-            <FaArrowLeft className="w-3 h-3" />
-            Back to home
-          </Link>
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors mb-8"
+            >
+              <FaArrowLeft className="w-3 h-3" />
+              Back to home
+            </Link>
+          </motion.div>
 
           {/* Header */}
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <span className="text-xs font-mono tracking-[0.2em] uppercase text-cyan-400 mb-4 block">
               Connect with me
             </span>
@@ -43,17 +55,20 @@ const LinksPage: React.FC = () => {
             <p className="text-[var(--muted)]">
               Find me across the web and social platforms
             </p>
-          </div>
+          </motion.div>
 
           {/* Links List */}
           <div className="flex flex-col gap-4">
-            {socialLinks.map((link) => (
-              <a
+            {socialLinks.map((link, index) => (
+              <motion.a
                 key={link.id}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-5 p-5 md:p-6 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] hover:border-cyan-500/70 hover:bg-[var(--card)]/80 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
               >
                 {/* Icon */}
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center bg-[var(--card)] border-2 border-cyan-500/30 group-hover:border-cyan-400 text-[var(--foreground)] transition-all duration-300">
@@ -67,7 +82,7 @@ const LinksPage: React.FC = () => {
 
                 {/* External Link Icon */}
                 <HiExternalLink className="w-6 h-6 text-[var(--muted)] group-hover:text-cyan-400 transition-colors" />
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import Header from '../components/layout/Header';
@@ -43,16 +44,27 @@ const AchievementsPage: React.FC = () => {
       <main className="pt-32 pb-24">
         <div className="section max-w-5xl mx-auto px-6">
           {/* Back to Home */}
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors mb-8"
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
           >
-            <FaArrowLeft className="w-3 h-3" />
-            Back to home
-          </Link>
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors mb-8"
+            >
+              <FaArrowLeft className="w-3 h-3" />
+              Back to home
+            </Link>
+          </motion.div>
 
           {/* Header */}
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <span className="text-xs font-mono tracking-[0.2em] uppercase text-amber-400 mb-4 block">
               Milestones & Victories
             </span>
@@ -65,14 +77,18 @@ const AchievementsPage: React.FC = () => {
             <p className="text-[var(--muted)] max-w-xl mx-auto">
               From code to peaks, every achievement tells a story of dedication.
             </p>
-          </div>
+          </motion.div>
 
           {/* Achievements List */}
           <div className="flex flex-col gap-8 sm:gap-10 md:gap-14 lg:gap-16">
             {achievements.map((achievement, index) => (
-              <div
+              <motion.div
                 key={`${achievement.id}-${index}`}
                 className="group relative"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
               >
                 {/* Background gradient shadow for entire card */}
                 <div className="absolute -inset-2 sm:-inset-3 md:-inset-4 bg-gradient-to-br from-pink-500/20 via-purple-500/15 to-cyan-500/20 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
@@ -104,7 +120,7 @@ const AchievementsPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
