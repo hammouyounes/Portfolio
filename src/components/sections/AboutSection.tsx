@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   SiSpringboot, 
   SiReact, 
@@ -75,7 +76,13 @@ const AboutSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
           
           {/* Name Card - Top Left */}
-          <div className="md:col-span-2 lg:col-span-2 bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md rounded-2xl relative overflow-hidden group w-full h-full p-7">
+          <motion.div
+            className="md:col-span-2 lg:col-span-2 bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md rounded-2xl relative overflow-hidden group w-full h-full p-7"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+          >
             {/* Radial Gradient Overlay */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
               <div className="w-full h-full blur-3xl bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] mix-blend-overlay" />
@@ -101,10 +108,16 @@ const AboutSection: React.FC = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Academic Showcase - Education Tab */}
-          <div className="md:col-span-2 lg:col-span-4 rounded-2xl bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md relative overflow-hidden group w-full h-64 md:h-56">
+          <motion.div
+            className="md:col-span-2 lg:col-span-4 rounded-2xl bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md relative overflow-hidden group w-full h-64 md:h-56"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             
             {/* Floating Badge */}
             <div className="hidden md:flex absolute top-4 left-0 right-0 justify-center z-30 pointer-events-none group-hover:opacity-0 transition-opacity duration-300 delay-100">
@@ -151,10 +164,16 @@ const AboutSection: React.FC = () => {
               />
 
             </div>
-          </div>
+          </motion.div>
 
           {/* Mindset Card - Left */}
-          <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] p-6 flex flex-col">
+          <motion.div
+            className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] p-6 flex flex-col"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
             <h3 className="text-2xl font-mono text-[var(--foreground)] mb-4">Mindset</h3>
             <p className="text-[var(--muted)] leading-relaxed mb-6">
               <span className="text-[var(--foreground)] font-medium">Building more than software.</span> My passions provide the{' '}
@@ -176,10 +195,16 @@ const AboutSection: React.FC = () => {
               <span className="text-[var(--foreground)] font-medium">Mastering body and mind</span> is my path to{' '}
               <span className="text-[var(--foreground)] font-medium">excellence</span>.
             </p>
-          </div>
+          </motion.div>
 
           {/* Photo Card - Center */}
-          <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] overflow-hidden flex flex-col">
+          <motion.div
+            className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] overflow-hidden flex flex-col"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             {/* Profile Photo */}
             <div className="flex-1 min-h-[200px] bg-gradient-to-br from-[var(--card)] to-[var(--background)] flex items-center justify-center">
               <img
@@ -209,10 +234,16 @@ const AboutSection: React.FC = () => {
                 GMT+1 • Open to remote work worldwide
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Craft Card - Right */}
-          <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] p-6 flex flex-col">
+          <motion.div
+            className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] p-6 flex flex-col"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+          >
             <h3 className="text-2xl font-mono text-[var(--foreground)] mb-4">Craft</h3>
             <p className="text-[var(--muted)]  leading-relaxed mb-4">
               Building scalable <span className="text-[var(--foreground)] font-medium">web ecosystems and digital platforms.</span>.
@@ -273,7 +304,7 @@ const AboutSection: React.FC = () => {
                 <span className="text-xs text-green-500 font-medium">Open to Internships, Full-time & Freelance</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

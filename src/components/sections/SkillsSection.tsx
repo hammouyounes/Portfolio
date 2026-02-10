@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { skills, skillCategories } from '../../data/skills';
 import GlassCard from '../ui/GlassCard';
 import SkillSphere from '../ui/SkillSphere';
@@ -41,7 +42,13 @@ const SkillsSection: React.FC = () => {
 
       <div className="section relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-8">
+        <motion.div
+          className="text-center mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium bg-[var(--accent)]/10 text-[var(--accent)] rounded-full border border-[var(--accent)]/20">
             Tech Stack
           </span>
@@ -52,21 +59,34 @@ const SkillsSection: React.FC = () => {
           <p className="text-lg text-[var(--muted)] max-w-2xl mx-auto">
             The tools and technologies I use to bring ideas to life.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3D Skill Sphere */}
-        <div className="h-[400px] md:h-[550px] mb-16 relative">
+        <motion.div
+          className="h-[400px] md:h-[550px] mb-16 relative"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+        >
           <SkillSphere 
             skills={sphereSkills} 
             radius={4.5} 
             autoRotateSpeed={0.08} 
           />
-        </div>
+        </motion.div>
 
         {/* Skills Grid by Category */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {groupedSkills.map((category, categoryIndex) => (
-            <GlassCard key={category.id} padding="lg" className="h-full">
+            <motion.div
+              key={category.id}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+            >
+            <GlassCard padding="lg" className="h-full">
               {/* Category Header */}
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-[var(--foreground)]">
@@ -119,6 +139,7 @@ const SkillsSection: React.FC = () => {
                 ))}
               </div>
             </GlassCard>
+            </motion.div>
           ))}
         </div>
       </div>

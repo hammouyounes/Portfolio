@@ -23,6 +23,7 @@
   --border-color: #27272a;
   --gradient-start: #6366f1;
   --gradient-end: #ec4899;
+  --dot-color: rgba(255, 255, 255, 0.15);
 }
 
 [data-theme="light"] {
@@ -36,6 +37,7 @@
   --border-color: #e4e4e7;
   --gradient-start: #4f46e5;
   --gradient-end: #db2777;
+  --dot-color: rgba(0, 0, 0, 0.1);
 }
 
 /* ============================================
@@ -48,6 +50,11 @@ html {
 
 body {
   background-color: var(--background);
+  /* The Dotted Pattern Logic */
+  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
+  
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

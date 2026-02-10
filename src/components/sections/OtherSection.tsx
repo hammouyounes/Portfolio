@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { BookOpenIcon, TrophyIcon, LinkIcon, ArrowRightIcon } from '../icons';
 
 interface ExploreCard {
@@ -58,7 +59,13 @@ const OtherSection: React.FC = () => {
     <section id="other" className="py-24 md:py-32">
       <div className="section">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--foreground)] mb-4">
             More to{' '}
             <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
@@ -68,15 +75,19 @@ const OtherSection: React.FC = () => {
           <p className="text-[var(--muted)] max-w-xl mx-auto">
             Check out these additional resources and connect with me
           </p>
-        </div>
+        </motion.div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6">
-          {exploreCards.map((card) => (
-            <a
+          {exploreCards.map((card, index) => (
+            <motion.a
               key={card.id}
               href={card.href}
               className="group flex flex-col items-center text-center relative"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
             >
               {/* Hover Background Container */}
               <div 
@@ -125,7 +136,7 @@ const OtherSection: React.FC = () => {
                   <ArrowRightIcon size={14} />
                 </div>
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
 

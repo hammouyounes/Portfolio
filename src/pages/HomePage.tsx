@@ -9,7 +9,8 @@ import OtherSection from '../components/sections/OtherSection';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+    <div className="min-h-screen">
+      
       <Header />
       <main>
         <HeroSection />
