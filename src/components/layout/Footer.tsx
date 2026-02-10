@@ -19,91 +19,37 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative mt-20 py-16 border-t border-[var(--card-border)]">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--card)]/50 to-transparent pointer-events-none" />
+    <footer className="relative mt-32 py-16 border-t border-[var(--card-border)] bg-transparent">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+        
+        {/* Left Side: Brand & Copyright */}
+        <div className="flex items-center gap-4 text-sm text-[var(--muted)] font-mono group hover:text-[var(--foreground)] transition-colors duration-300">
+          <span className="font-bold text-[var(--foreground)] text-lg group-hover:text-amber-400 transition-colors">YH</span>
+          <span>•</span>
+          <span>© {currentYear} Younes Hammou</span>
+        </div>
 
-      <div className="section relative">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          {/* Left side - Branding */}
-          <div className="flex flex-col items-center md:items-start gap-4">
+        {/* Center: Tech Attribution */}
+        <div className="text-sm text-[var(--muted)] flex items-center gap-2 hover:text-[var(--foreground)] transition-colors duration-300">
+          Built with <span className="text-red-500 animate-pulse">❤️</span> using <span className="font-medium text-cyan-400">React</span> & <span className="font-medium text-sky-400">Tailwind</span>
+        </div>
+
+        {/* Right Side: Social Links */}
+        <div className="flex items-center gap-6">
+          {socialLinks.map((link) => (
             <a
-              href="#"
-              className="text-2xl font-bold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors duration-200"
+              key={link.name}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--muted)] hover:text-white hover:scale-110 transition-all duration-300 p-2 rounded-full hover:bg-[var(--accent)]/10"
+              aria-label={link.name}
             >
-              Hammou<span className="text-[var(--accent)]">.</span>Younes
+              {getSocialIcon(link.icon)}
             </a>
-            <p className="text-sm text-[var(--muted)] text-center md:text-left max-w-xs">
-              Full Stack Developer crafting digital experiences with code and creativity.
-            </p>
-          </div>
-
-          {/* Center - Quick Links */}
-          <div className="flex flex-col items-center gap-4">
-            <span className="text-xs uppercase tracking-wider text-[var(--muted)]">Quick Links</span>
-            <div className="flex items-center gap-6">
-              <a
-                href="#about"
-                className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-200 flex items-center gap-1 group"
-              >
-                About
-                <ArrowRightIcon size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-              </a>
-              <a
-                href="#projects"
-                className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-200 flex items-center gap-1 group"
-              >
-                Projects
-                <ArrowRightIcon size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-              </a>
-              <a
-                href="#skills"
-                className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-200 flex items-center gap-1 group"
-              >
-                Skills
-                <ArrowRightIcon size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-              </a>
-            </div>
-          </div>
-
-          {/* Right side - Social Links */}
-          <div className="flex flex-col items-center md:items-end gap-4">
-            <span className="text-xs uppercase tracking-wider text-[var(--muted)]">Connect</span>
-            <div className="flex items-center gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    p-3 rounded-xl
-                    bg-[var(--card)] border border-[var(--card-border)]
-                    text-[var(--muted)] hover:text-[var(--foreground)]
-                    hover:border-[var(--accent)] hover:bg-[var(--accent)]/10
-                    transition-all duration-200
-                    hover:scale-110
-                  "
-                  aria-label={link.name}
-                >
-                  {getSocialIcon(link.icon)}
-                </a>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-[var(--card-border)]/50">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-[var(--muted)]">
-              © {currentYear} Hammou Younes. All rights reserved.
-            </p>
-            <p className="text-sm text-[var(--muted)]">
-              Built with <span className="text-[var(--accent)]">React</span> & <span className="text-[var(--accent)]">Tailwind CSS</span>
-            </p>
-          </div>
-        </div>
       </div>
     </footer>
   );
