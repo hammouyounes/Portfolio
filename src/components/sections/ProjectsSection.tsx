@@ -7,7 +7,7 @@ import { GitHubIcon } from '../icons';
 
 const ProjectsSection: React.FC = () => {
   return (
-    <section id="projects" className="py-12 md:py-16">
+    <section id="projects" className="py-24 md:py-32">
       <div className="section">
         {/* Section Header */}
         <motion.div
@@ -29,7 +29,7 @@ const ProjectsSection: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -49,6 +49,7 @@ const ProjectsSection: React.FC = () => {
                 link={project.link}
                 gradientFrom={project.gradientFrom}
                 gradientTo={project.gradientTo}
+                disableGithub={project.disableGithub}
               />
             </motion.div>
           ))}

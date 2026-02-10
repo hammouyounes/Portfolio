@@ -12,6 +12,7 @@ interface ProjectCardProps {
   link?: string;
   gradientFrom?: string;
   gradientTo?: string;
+  disableGithub?: boolean;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -24,6 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   github,
   gradientFrom = 'from-purple-600/90',
   gradientTo = 'to-violet-600/90',
+  disableGithub,
 }) => {
   return (
     <article className="group flex flex-col h-full">
@@ -44,18 +46,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </h3>
           <div className="flex items-center gap-2 shrink-0 opacity-100 xl:opacity-0 xl:group-hover:opacity-100 transition-opacity duration-300">
             {github && (
-              <a
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/btn relative inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg font-semibold text-[10px] md:text-xs bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 text-white hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 overflow-hidden"
-                aria-label="Star on GitHub"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-violet-500 to-fuchsia-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
-                <FaGithub className="relative z-10 w-3 h-3" />
-                <span className="relative z-10 hidden sm:inline">Star</span>
-                <span className="relative z-10 sm:hidden">★</span>
-              </a>
+              disableGithub ? (
+                <span
+                  className="group/btn relative inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg font-semibold text-[10px] md:text-xs bg-white/5 border border-white/10 text-[var(--muted)] cursor-not-allowed transition-all duration-300 overflow-hidden"
+                  aria-label="Private Repository"
+                >
+                  <FaGithub className="relative z-10 w-3 h-3 opacity-50" />
+                  <span className="relative z-10 hidden sm:inline">Private</span>
+                  <span className="relative z-10 sm:hidden">🔒</span>
+                </span>
+              ) : (
+                <a
+                  href={github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn relative inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg font-semibold text-[10px] md:text-xs bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 text-white hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 overflow-hidden"
+                  aria-label="Star on GitHub"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-violet-500 to-fuchsia-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
+                  <FaGithub className="relative z-10 w-3 h-3" />
+                  <span className="relative z-10 hidden sm:inline">Star</span>
+                  <span className="relative z-10 sm:hidden">★</span>
+                </a>
+              )
             )}
           </div>
         </div>

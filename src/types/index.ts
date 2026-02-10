@@ -16,6 +16,7 @@ export interface Project {
   gradientTo?: string;
   link?: string;
   github?: string;
+  disableGithub?: boolean;
 }
 
 // Skill Types

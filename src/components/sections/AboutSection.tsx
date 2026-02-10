@@ -190,20 +190,10 @@ const AboutSection: React.FC = () => {
                 <li className="flex gap-4 text-base text-[var(--muted)] leading-relaxed">
                   <span className="shrink-0 w-2 h-2 rounded-full bg-[var(--accent)] mt-2.5" />
                   <span>
-                    <strong className="text-[var(--foreground)] block mb-1">Digitalization Intern @ Commune Dcheira</strong>
+                    <strong className="text-[var(--foreground)] block mb-1">Digitalization Intern @ Commune Dcheira
+                      <span className="text-sm font-normal text-[var(--accent)] ml-2 font-mono opacity-80">(Avril 2025 - Mai 2025)</span>
+                    </strong>
                     Designed a civil status platform to streamline citizen services and document processing.
-                  </span>
-                </li>
-                <li className="flex gap-4 text-base text-[var(--muted)] leading-relaxed">
-                  <span className="shrink-0 w-2 h-2 rounded-full bg-[var(--accent)] mt-2.5" />
-                  <span>
-                    <strong className="text-[var(--foreground)]">Core Stack:</strong> Expert in Java (Spring Boot), PHP (Laravel), and React.
-                  </span>
-                </li>
-                <li className="flex gap-4 text-base text-[var(--muted)] leading-relaxed">
-                  <span className="shrink-0 w-2 h-2 rounded-full bg-[var(--accent)] mt-2.5" />
-                  <span>
-                    <strong className="text-[var(--foreground)]">DevOps:</strong> Experienced with Agile (Scrum), Docker, and GitLab CI/CD pipelines.
                   </span>
                 </li>
               </ul>

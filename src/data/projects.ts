@@ -17,7 +17,7 @@ export const projects: Project[] = [
   {
     id: 'Wassel-vite',
     title: 'Wassel-vite',
-    description: 'A gamified habit-tracking app that grows virtual trees as you build positive habits.',
+    description: 'A gamified habit-tracking app that grows virtual trees as you build positive habits. (Private Repository)',
     image: wasselImg,
     tags: ['Laravel', 'MySql', 'J-query'],
     type: 'Web App',
@@ -25,5 +25,6 @@ export const projects: Project[] = [
     gradientTo: 'to-teal-500/90',
     link: 'https://improvement-tree.demo',
     github: 'https://github.com/hammouyounes/Project_Stage',
+    disableGithub: true,
   },
 ];
