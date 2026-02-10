@@ -2,9 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   SiSpringboot, SiReact, SiLaravel, SiAngular, SiDocker, 
-  SiTypescript, SiNodedotjs, SiMysql, SiTailwindcss, 
-  SiFramer, SiNextdotjs, SiPostgresql, SiPrisma, 
-  SiRedux, SiVercel, SiPostman, SiAmazonwebservices, SiKubernetes 
+  SiTypescript, SiMysql, SiTailwindcss, 
+  SiRedux, SiPostman 
 } from 'react-icons/si';
 import { FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaGithub } from 'react-icons/fa';
 import SkillSphere from '../ui/SkillSphere';
