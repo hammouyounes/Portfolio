@@ -174,27 +174,40 @@ const AboutSection: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.15 }}
           >
-            <h3 className="text-2xl font-mono text-[var(--foreground)] mb-4">Mindset</h3>
-            <p className="text-[var(--muted)] leading-relaxed mb-6">
-              <span className="text-[var(--foreground)] font-medium">Building more than software.</span> My passions provide the{' '}
-              <span className="text-[var(--foreground)] font-medium">discipline and focus</span> I focus on the user journey.
-            </p>
-            I combine technical discipline with Agile collaboration 
-            to solve complex problems. Whether it's a Syndic Management 
-            app or Delivery Logistics, 
-            
-            {/* Hobby Image */}
-            <div className="mt-auto rounded-xl overflow-hidden border border-[var(--card-border)] h-32 bg-gradient-to-br from-purple-900/30 to-blue-900/30 flex items-center justify-center">
-              <div className="text-center">
-                <span className="text-2xl">🏋️</span>
-                <p className="text-xs text-[var(--muted)] mt-1">Continuous Learning</p>
-              </div>
+            <h3 className="text-2xl font-mono text-[var(--foreground)] mb-4">Experiences</h3>
+            <div className="space-y-5">
+              <ul className="space-y-5">
+                <li className="flex gap-4 text-base text-[var(--muted)] leading-relaxed">
+                  <span className="shrink-0 w-2 h-2 rounded-full bg-[var(--accent)] mt-2.5" />
+                  <span>
+                    <strong className="text-[var(--foreground)] block mb-1">
+                      Full-Stack Intern @ Palace Agency
+                      <span className="text-sm font-normal text-[var(--accent)] ml-2 font-mono opacity-80">(Dec 2024 - Apr 2025)</span>
+                    </strong>
+                    Developed a delivery management application using Laravel & MySQL aimed at optimizing logistics.
+                  </span>
+                </li>
+                <li className="flex gap-4 text-base text-[var(--muted)] leading-relaxed">
+                  <span className="shrink-0 w-2 h-2 rounded-full bg-[var(--accent)] mt-2.5" />
+                  <span>
+                    <strong className="text-[var(--foreground)] block mb-1">Digitalization Intern @ Commune Dcheira</strong>
+                    Designed a civil status platform to streamline citizen services and document processing.
+                  </span>
+                </li>
+                <li className="flex gap-4 text-base text-[var(--muted)] leading-relaxed">
+                  <span className="shrink-0 w-2 h-2 rounded-full bg-[var(--accent)] mt-2.5" />
+                  <span>
+                    <strong className="text-[var(--foreground)]">Core Stack:</strong> Expert in Java (Spring Boot), PHP (Laravel), and React.
+                  </span>
+                </li>
+                <li className="flex gap-4 text-base text-[var(--muted)] leading-relaxed">
+                  <span className="shrink-0 w-2 h-2 rounded-full bg-[var(--accent)] mt-2.5" />
+                  <span>
+                    <strong className="text-[var(--foreground)]">DevOps:</strong> Experienced with Agile (Scrum), Docker, and GitLab CI/CD pipelines.
+                  </span>
+                </li>
+              </ul>
             </div>
-            
-            <p className="text-[var(--muted)] mt-6 leading-relaxed">
-              <span className="text-[var(--foreground)] font-medium">Mastering body and mind</span> is my path to{' '}
-              <span className="text-[var(--foreground)] font-medium">excellence</span>.
-            </p>
           </motion.div>
 
           {/* Photo Card - Center */}
