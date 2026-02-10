@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative mt-32 py-16 border-t border-[var(--card-border)]">
+    <footer className="relative mt-20 py-16 border-t border-[var(--card-border)]">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-t from-[var(--card)]/50 to-transparent pointer-events-none" />
 

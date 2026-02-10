@@ -70,7 +70,7 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 md:py-32">
+    <section id="about" className="py-12 md:py-16">
       <div className="section">
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">

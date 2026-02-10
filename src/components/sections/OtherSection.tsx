@@ -56,7 +56,7 @@ const exploreCards: ExploreCard[] = [
 
 const OtherSection: React.FC = () => {
   return (
-    <section id="other" className="py-24 md:py-32">
+    <section id="other" className="py-12 md:py-16">
       <div className="section">
         {/* Section Header */}
         <motion.div

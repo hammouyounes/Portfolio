@@ -7,7 +7,7 @@ import { GitHubIcon } from '../icons';
 
 const ProjectsSection: React.FC = () => {
   return (
-    <section id="projects" className="py-24 md:py-32">
+    <section id="projects" className="py-12 md:py-16">
       <div className="section">
         {/* Section Header */}
         <motion.div

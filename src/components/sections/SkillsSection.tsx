@@ -28,7 +28,7 @@ const SkillsSection: React.FC = () => {
   }));
 
   return (
-    <section id="skills" className="py-24 md:py-32 relative">
+    <section id="skills" className="py-12 md:py-16 relative">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
