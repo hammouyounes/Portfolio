@@ -6,10 +6,8 @@ import {
   SiLaravel, 
   SiAngular, 
   SiDocker, 
-  SiTypescript, 
-  SiNodedotjs,
+  SiTypescript,
   SiOracle,
-  SiGitlab
 } from 'react-icons/si';
 import { FaGitAlt } from 'react-icons/fa';
 import myImg from '../../assets/MyImg.png'

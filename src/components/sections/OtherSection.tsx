@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpenIcon, TrophyIcon, LinkIcon, ArrowRightIcon } from '../icons';
+import { TrophyIcon, LinkIcon, ArrowRightIcon } from '../icons';
 
 interface ExploreCard {
   id: string;
