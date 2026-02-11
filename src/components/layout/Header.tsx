@@ -62,11 +62,11 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header
+    <header
         className={`
-          fixed top-0 left-0 right-0 z-50
+          fixed top-4 left-0 right-0 z-50
           transition-all duration-300 ease-out
-          py-5
+          py-3
         `.replace(/\s+/g, ' ').trim()}
       >
         <div className="section">
@@ -76,7 +76,7 @@ const Header: React.FC = () => {
               <button
                 onClick={toggleTheme}
                 className="
-                  p-4 rounded-full
+                  p-2.5 rounded-full
                   bg-white/80 dark:bg-white/10
                   shadow-sm
                   text-amber-500 dark:text-amber-400
@@ -89,15 +89,15 @@ const Header: React.FC = () => {
                 }}
                 aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
               >
-                {isDark ? <MoonIcon size={24} /> : <SunIcon size={24} />}
+                {isDark ? <MoonIcon size={20} /> : <SunIcon size={20} />}
               </button>
             </div>
 
             {/* Center - Navigation Pills */}
             <div
               className="
-                hidden md:flex items-center gap-2
-                px-3 py-2.5
+                hidden md:flex items-center gap-1
+                px-2 py-1.5
                 rounded-full
                 shadow-lg shadow-black/5
                 backdrop-blur-md
@@ -115,7 +115,7 @@ const Header: React.FC = () => {
                     href={item.href}
                     onClick={() => setActiveSection(item.href.replace('#', ''))}
                     className={`
-                      px-6 py-2.5 text-base font-medium
+                      px-4 py-1.5 text-sm font-medium
                       rounded-full
                       transition-all duration-200
                       ${isActive
@@ -140,9 +140,9 @@ const Header: React.FC = () => {
                 href={Resume}
                 download
                 className="
-                  inline-flex items-center gap-2.5
-                  px-6 py-3
-                  text-base font-medium
+                  inline-flex items-center gap-2
+                  px-4 py-2
+                  text-sm font-medium
                   rounded-full
                   shadow-lg shadow-black/5
                   backdrop-blur-md
@@ -155,7 +155,7 @@ const Header: React.FC = () => {
                   color: isDark ? '#e4e4e7' : '#18181b',
                 }}
               >
-                <DownloadIcon size={18} />
+                <DownloadIcon size={16} />
                 Download Resume
               </a>
             </div>
@@ -165,7 +165,7 @@ const Header: React.FC = () => {
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="
-                  p-3 rounded-full
+                  p-2 rounded-full
                   bg-white/80 dark:bg-white/10
                   shadow-sm
                   text-gray-700 dark:text-gray-300
@@ -179,7 +179,7 @@ const Header: React.FC = () => {
                 }}
                 aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               >
-                {isMobileMenuOpen ? <CloseIcon size={22} /> : <MenuIcon size={22} />}
+                {isMobileMenuOpen ? <CloseIcon size={20} /> : <MenuIcon size={20} />}
               </button>
             </div>
           </nav>
