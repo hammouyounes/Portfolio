@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative mt-32 py-16 border-t border-[var(--card-border)] bg-transparent">
+    <footer className="relative py-16 border-t border-[var(--card-border)] bg-transparent">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         
         {/* Left Side: Brand & Copyright */}

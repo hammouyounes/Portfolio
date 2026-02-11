@@ -78,12 +78,12 @@ const OtherSection: React.FC = () => {
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 max-w-4xl mx-auto">
           {exploreCards.map((card, index) => (
             <motion.a
               key={card.id}
               href={card.href}
-              className="group flex flex-col items-center text-center relative"
+              className="group flex flex-col items-center text-center relative p-8 rounded-3xl glass overflow-hidden border border-[var(--card-border)] hover:border-transparent transition-colors duration-300"
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -92,7 +92,7 @@ const OtherSection: React.FC = () => {
               {/* Hover Background Container */}
               <div 
                 className={`
-                  absolute inset-0 -inset-x-4 -inset-y-6 rounded-3xl
+                  absolute inset-0
                   opacity-0 group-hover:opacity-100
                   transition-all duration-300
                   ${card.hoverBg}
@@ -106,9 +106,9 @@ const OtherSection: React.FC = () => {
                   className={`
                     w-16 h-16 rounded-2xl mb-6
                     flex items-center justify-center
-                    bg-[var(--card)] border-2 ${card.borderColor}
+                    bg-[var(--card)]/50 border-2 ${card.borderColor}
                     text-[var(--foreground)]
-                    group-hover:border-opacity-100 ${card.hoverBorder}
+                    group-hover:scale-110 group-hover:rotate-3
                     transition-all duration-300
                   `}
                 >
