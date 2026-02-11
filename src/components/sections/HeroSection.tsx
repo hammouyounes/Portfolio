@@ -196,7 +196,7 @@ const HeroSection: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div
             className="
               rounded-3xl

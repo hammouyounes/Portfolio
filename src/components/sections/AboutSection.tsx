@@ -68,14 +68,14 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-12 md:py-16">
+    <section id="about" className="py-8 md:py-10">
       <div className="section">
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-3 max-w-5xl mx-auto">
           
           {/* Name Card - Top Left */}
           <motion.div
-            className="md:col-span-2 lg:col-span-2 bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md rounded-2xl relative overflow-hidden group w-full h-full p-7"
+            className="md:col-span-2 lg:col-span-2 bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md rounded-xl relative overflow-hidden group w-full h-full p-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -89,19 +89,19 @@ const AboutSection: React.FC = () => {
             {/* Content */}
             <div className="flex flex-col justify-center items-center text-center h-full relative z-10 w-full gap-1">
               {/* Name */}
-              <div className="flex flex-col items-center w-full pb-2">
-                <div className="text-5xl font-black tracking-tighter leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-[var(--foreground)] to-[var(--muted)] drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+              <div className="flex flex-col items-center w-full pb-1">
+                <div className="text-3xl lg:text-4xl font-black tracking-tighter leading-[1] text-transparent bg-clip-text bg-gradient-to-b from-[var(--foreground)] to-[var(--muted)] drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
                   HAMMOU
                 </div>
-                <div className="text-5xl font-black tracking-tighter leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-[var(--foreground)] to-[var(--muted)] drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+                <div className="text-3xl lg:text-4xl font-black tracking-tighter leading-[1] text-transparent bg-clip-text bg-gradient-to-b from-[var(--foreground)] to-[var(--muted)] drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
                   YOUNES
                 </div>
               </div>
               
               {/* Separator & Subtitle */}
-              <div className="flex flex-col items-center gap-2 -mt-1">
-                <div className="h-px w-12 bg-[var(--foreground)]/20" />
-                <span className="text-[15px] font-mono text-[var(--muted)] uppercase tracking-[0.2em] opacity-80">
+              <div className="flex flex-col items-center gap-1.5 -mt-1">
+                <div className="h-px w-10 bg-[var(--foreground)]/20" />
+                <span className="text-xs font-mono text-[var(--muted)] uppercase tracking-[0.15em] opacity-80">
                   Fullstack Developer
                 </span>
               </div>
@@ -110,7 +110,7 @@ const AboutSection: React.FC = () => {
 
           {/* Academic Showcase - Education Tab */}
           <motion.div
-            className="md:col-span-2 lg:col-span-4 rounded-2xl bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md relative overflow-hidden group w-full h-64 md:h-56"
+            className="md:col-span-2 lg:col-span-4 rounded-xl bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] backdrop-blur-md relative overflow-hidden group w-full h-52 md:h-44"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -118,8 +118,8 @@ const AboutSection: React.FC = () => {
           >
             
             {/* Floating Badge */}
-            <div className="hidden md:flex absolute top-4 left-0 right-0 justify-center z-30 pointer-events-none group-hover:opacity-0 transition-opacity duration-300 delay-100">
-              <span className="text-[8px] uppercase tracking-[0.2em] text-purple-400/50 font-medium bg-[var(--card)]/50 backdrop-blur-sm px-3 py-1 rounded-full border border-purple-500/10">
+            <div className="hidden md:flex absolute top-3 left-0 right-0 justify-center z-30 pointer-events-none group-hover:opacity-0 transition-opacity duration-300 delay-100">
+              <span className="text-[8px] uppercase tracking-[0.2em] text-purple-400/50 font-medium bg-[var(--card)]/50 backdrop-blur-sm px-2 py-0.5 rounded-full border border-purple-500/10">
                 Hover to read more
               </span>
             </div>
@@ -136,20 +136,20 @@ const AboutSection: React.FC = () => {
             </div>
 
             {/* Cards Container */}
-            <div className="w-full h-full flex justify-center items-end px-2 relative z-10 overflow-hidden rounded-2xl">
+            <div className="w-full h-full flex justify-center items-end px-2 relative z-10 overflow-hidden rounded-xl">
               
               <StackedCard 
                 title="Tech Stack"
                 shortDesc=""
                 longDesc="Specialized in Full-Stack development using Java (Spring Boot) and PHP (Laravel) for robust backends, paired with modern Angular and React frontends."
-                className="w-[38%] md:w-1/3 -mr-1 md:-mr-2"
+                className="w-[38%] md:w-1/3 -mr-1 md:-mr-2 !h-40 md:!h-36 hover:!h-44 md:hover:!h-40"
               />
 
               <StackedCard 
                 title="University"
                 shortDesc=""
                 longDesc="Currently pursuing a Bachelor in Information Systems Engineering and Web Technologies at EST Sidi Bennour."
-                className="w-[40%] md:w-2/5 z-20"
+                className="w-[40%] md:w-2/5 z-20 !h-40 md:!h-36 hover:!h-44 md:hover:!h-40"
                 textAlign="center"
               />
 
@@ -157,7 +157,7 @@ const AboutSection: React.FC = () => {
                 title="FEATURED WORK"
                 shortDesc=""
                 longDesc="Proven track record in developing real-world applications, including a delivery management system and a syndic management app."
-                className="w-[38%] md:w-1/3 -ml-1 md:-ml-2"
+                className="w-[38%] md:w-1/3 -ml-1 md:-ml-2 !h-40 md:!h-36 hover:!h-44 md:hover:!h-40"
                 textAlign="right"
               />
 
@@ -166,30 +166,30 @@ const AboutSection: React.FC = () => {
 
           {/* Mindset Card - Left */}
           <motion.div
-            className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] p-6 flex flex-col"
+            className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-xl bg-[var(--card)] border border-[var(--card-border)] p-4 flex flex-col"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.15 }}
           >
-            <h3 className="text-2xl font-mono text-[var(--foreground)] mb-4">Experiences</h3>
-            <div className="space-y-5">
-              <ul className="space-y-5">
-                <li className="flex gap-4 text-base text-[var(--muted)] leading-relaxed">
-                  <span className="shrink-0 w-2 h-2 rounded-full bg-[var(--accent)] mt-2.5" />
+            <h3 className="text-lg font-mono text-[var(--foreground)] mb-3">Experiences</h3>
+            <div className="space-y-3">
+              <ul className="space-y-3">
+                <li className="flex gap-3 text-sm text-[var(--muted)] leading-relaxed">
+                  <span className="shrink-0 w-1.5 h-1.5 rounded-full bg-[var(--accent)] mt-2" />
                   <span>
-                    <strong className="text-[var(--foreground)] block mb-1">
+                    <strong className="text-[var(--foreground)] block mb-0.5">
                       Full-Stack Intern @ Palace Agency
-                      <span className="text-sm font-normal text-[var(--accent)] ml-2 font-mono opacity-80">(Dec 2024 - Apr 2025)</span>
+                      <span className="text-xs font-normal text-[var(--accent)] ml-1.5 font-mono opacity-80">(Dec 2024 - Apr 2025)</span>
                     </strong>
                     Developed a delivery management application using Laravel & MySQL aimed at optimizing logistics.
                   </span>
                 </li>
-                <li className="flex gap-4 text-base text-[var(--muted)] leading-relaxed">
-                  <span className="shrink-0 w-2 h-2 rounded-full bg-[var(--accent)] mt-2.5" />
+                <li className="flex gap-3 text-sm text-[var(--muted)] leading-relaxed">
+                  <span className="shrink-0 w-1.5 h-1.5 rounded-full bg-[var(--accent)] mt-2" />
                   <span>
-                    <strong className="text-[var(--foreground)] block mb-1">Digitalization Intern @ Commune Dcheira
-                      <span className="text-sm font-normal text-[var(--accent)] ml-2 font-mono opacity-80">(Avril 2025 - Mai 2025)</span>
+                    <strong className="text-[var(--foreground)] block mb-0.5">Digitalization Intern @ Commune Dcheira
+                      <span className="text-xs font-normal text-[var(--accent)] ml-1.5 font-mono opacity-80">(Avril 2025 - Mai 2025)</span>
                     </strong>
                     Designed a civil status platform to streamline citizen services and document processing.
                   </span>
@@ -200,22 +200,22 @@ const AboutSection: React.FC = () => {
 
           {/* Photo Card - Center */}
           <motion.div
-            className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] overflow-hidden flex flex-col"
+            className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-xl bg-[var(--card)] border border-[var(--card-border)] overflow-hidden flex flex-col"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Profile Photo */}
-            <div className="flex-1 min-h-[200px] bg-gradient-to-br from-[var(--card)] to-[var(--background)] flex items-center justify-center">
+            <div className="flex-1 min-h-[160px] bg-gradient-to-br from-[var(--card)] to-[var(--background)] flex items-center justify-center">
               <img
                 src={myImg}
                 alt="Hammou Younes"
-                className="w-full h-100 object-cover"
+                className="w-full h-90 object-cover"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   e.currentTarget.parentElement!.innerHTML = `
-                    <div class="w-32 h-32 rounded-full bg-gradient-to-br from-[var(--gradient-start)] to-[var(--gradient-end)] flex items-center justify-center text-5xl text-white font-bold">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-[var(--gradient-start)] to-[var(--gradient-end)] flex items-center justify-center text-3xl text-white font-bold">
                       HY
                     </div>
                   `;
@@ -224,14 +224,14 @@ const AboutSection: React.FC = () => {
             </div>
             
             {/* Location */}
-            <div className="p-5 border-t border-[var(--card-border)]">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 rounded-lg bg-[var(--background)] border border-[var(--card-border)] flex items-center justify-center">
-                  <span className="text-sm">🌍</span>
+            <div className="p-3 border-t border-[var(--card-border)]">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-6 h-6 rounded-md bg-[var(--background)] border border-[var(--card-border)] flex items-center justify-center">
+                  <span className="text-xs">🌍</span>
                 </div>
               </div>
-              <h4 className="text-xl font-bold text-[var(--foreground)] mb-1">MOROCCO 🇲🇦</h4>
-              <p className="text-xs text-[var(--muted)] font-mono">
+              <h4 className="text-base font-bold text-[var(--foreground)] mb-0.5">MOROCCO 🇲🇦</h4>
+              <p className="text-[10px] text-[var(--muted)] font-mono">
                 GMT+1 • Open to remote work worldwide
               </p>
             </div>
@@ -239,52 +239,52 @@ const AboutSection: React.FC = () => {
 
           {/* Craft Card - Right */}
           <motion.div
-            className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-2xl bg-[var(--card)] border border-[var(--card-border)] p-6 flex flex-col"
+            className="md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-xl bg-[var(--card)] border border-[var(--card-border)] p-4 flex flex-col"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.25 }}
           >
-            <h3 className="text-2xl font-mono text-[var(--foreground)] mb-4">Craft</h3>
-            <p className="text-[var(--muted)]  leading-relaxed mb-4">
+            <h3 className="text-lg font-mono text-[var(--foreground)] mb-3">Craft</h3>
+            <p className="text-sm text-[var(--muted)] leading-relaxed mb-3">
               Building scalable <span className="text-[var(--foreground)] font-medium">web ecosystems and digital platforms.</span>.
             </p>
-            <p className="text-[var(--muted)] leading-relaxed mb-6">
+            <p className="text-sm text-[var(--muted)] leading-relaxed mb-4">
               I understand the advantages modern tech provides, helping me bridge the gap between complex business logic and high-performance code.
             </p>
             
             {/* Tech Carousel - Infinite Scroll */}
-            <div className="relative w-full py-2 bg-[var(--card-border)]/30 border-y border-[var(--card-border)]/50 my-auto">
+            <div className="relative w-full py-1.5 bg-[var(--card-border)]/30 border-y border-[var(--card-border)]/50 my-auto">
               {/* Fade edges */}
-              <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-[var(--card)] to-transparent z-10" />
-              <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-[var(--card)] to-transparent z-10" />
+              <div className="absolute left-0 top-0 bottom-0 w-4 bg-gradient-to-r from-[var(--card)] to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-4 bg-gradient-to-l from-[var(--card)] to-transparent z-10" />
               
               {/* Scrolling container */}
               <div className="flex overflow-hidden select-none">
-                <div className="flex gap-5 whitespace-nowrap pr-5 items-center animate-scroll-left">
+                <div className="flex gap-4 whitespace-nowrap pr-4 items-center animate-scroll-left">
                   {/* First set of skills */}
-                  <div className="flex gap-5 items-center">
+                  <div className="flex gap-4 items-center">
                     {skills.map((skill, index) => (
                       <div
                         key={`${skill.name}-${index}`}
-                        className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
+                        className="flex items-center gap-1 opacity-80 hover:opacity-100 transition-opacity"
                       >
-                        <span className="text-xs" style={{ color: skill.color }}>{skill.icon}</span>
-                        <span className="text-[9px] font-mono font-medium text-[var(--muted)] uppercase tracking-wide">
+                        <span className="text-[10px]" style={{ color: skill.color }}>{skill.icon}</span>
+                        <span className="text-[8px] font-mono font-medium text-[var(--muted)] uppercase tracking-wide">
                           {skill.name}
                         </span>
                       </div>
                     ))}
                   </div>
                   {/* Duplicate set for seamless loop */}
-                  <div className="flex gap-5 items-center">
+                  <div className="flex gap-4 items-center">
                     {skills.map((skill, index) => (
                       <div
                         key={`${skill.name}-dup-${index}`}
-                        className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
+                        className="flex items-center gap-1 opacity-80 hover:opacity-100 transition-opacity"
                       >
-                        <span className="text-xs" style={{ color: skill.color }}>{skill.icon}</span>
-                        <span className="text-[9px] font-mono font-medium text-[var(--muted)] uppercase tracking-wide">
+                        <span className="text-[10px]" style={{ color: skill.color }}>{skill.icon}</span>
+                        <span className="text-[8px] font-mono font-medium text-[var(--muted)] uppercase tracking-wide">
                           {skill.name}
                         </span>
                       </div>
@@ -295,14 +295,14 @@ const AboutSection: React.FC = () => {
             </div>
             
             <div className="mt-auto">
-              <p className="text-[var(--muted)] leading-relaxed mb-4 mt-4">
+              <p className="text-xs text-[var(--muted)] leading-relaxed mb-3 mt-3">
                 Active learner & problem solver. Feel free to invite me to <span className="text-[var(--foreground)] font-medium">collaborate</span>.
               </p>
               
               {/* Status Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                <span className="text-xs text-green-500 font-medium">Open to Internships, Full-time & Freelance</span>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                <span className="text-[10px] text-green-500 font-medium">Open to Internships, Full-time & Freelance</span>
               </div>
             </div>
           </motion.div>
